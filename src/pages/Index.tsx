@@ -5,11 +5,11 @@ const Index = () => {
   const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSctHvErxAhocF8mHRnX74T9JO0hycE4ANL3l2L4x1usxCmRYQ/viewform?usp=header";
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#595959] p-4 sm:p-8">
       <div className="w-full max-w-2xl animate-in fade-in duration-1000">
         <div className="relative overflow-hidden rounded-2xl shadow-2xl">
           <img
-            src={avyaImage}
+            src={"https://res.cloudinary.com/dnacduwvj/image/upload/v1760438988/landing_page_cyp4fx.png"}
             alt="AVYA - Luxury Beauty Science Longevity - Coming Soon"
             className="h-auto w-full object-cover"
           />
@@ -17,7 +17,7 @@ const Index = () => {
             <Button
               asChild
               size="lg"
-              className="group relative overflow-hidden bg-primary/90 backdrop-blur-sm px-12 py-6 text-lg font-medium text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-primary"
+              className="group relative overflow-hidden bg-[#B0C2B0] backdrop-blur-sm px-12 py-6 text-lg font-medium text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-[#C1B5C6]"
             >
               <a
                 href={googleFormUrl}
@@ -25,7 +25,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                <span className="relative z-10">Sign Up</span>
+                <span className="relative z-10 text-[#262626]">Sign Up to be the first to know</span>
                 <svg
                   className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
