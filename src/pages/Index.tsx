@@ -2,7 +2,7 @@ import avyaImage from "@/assets/avya-coming-soon.png";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
-  const googleFormUrl = "https://forms.google.com/your-form-link";
+  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSctHvErxAhocF8mHRnX74T9JO0hycE4ANL3l2L4x1usxCmRYQ/viewform?usp=header";
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
