@@ -2,21 +2,17 @@ import avyaImage from "@/assets/avya-coming-soon.png";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
-  // Replace this URL with your actual Google Form link
   const googleFormUrl = "https://forms.google.com/your-form-link";
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
       <div className="w-full max-w-2xl animate-in fade-in duration-1000">
-        {/* Main Image with Sign Up Link Overlay */}
         <div className="relative overflow-hidden rounded-2xl shadow-2xl">
           <img
             src={avyaImage}
             alt="AVYA - Luxury Beauty Science Longevity - Coming Soon"
             className="h-auto w-full object-cover"
           />
-          
-          {/* Sign Up Link positioned on the image */}
           <div className="absolute inset-0 flex items-center justify-center">
             <Button
               asChild
