@@ -88,15 +88,65 @@
 // };
 
 // export default Index;
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import W4 from "../assets/wp.svg";
 import W5 from "../assets/n.png";
 
 
 const Index = () => {
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSctHvErxAhocF8mHRnX74T9JO0hycE4ANL3l2L4x1usxCmRYQ/viewform?usp=header";
   const whatsappNumber = "254116444433";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const normalizedEmail = email.toLowerCase().trim();
+    
+    if (!normalizedEmail || !normalizedEmail.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Call your backend API endpoint
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: normalizedEmail }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle different error types
+        if (data.title === 'Member Exists') {
+          setError('This email is already subscribed to our newsletter.');
+        } else if (data.title === 'Invalid Resource') {
+          setError('Please enter a valid email address.');
+        } else {
+          setError(data.detail || 'Failed to subscribe. Please try again.');
+        }
+        return;
+      }
+
+      setSuccess(true);
+      setEmail('');
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err) {
+      setError('Failed to subscribe. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
@@ -111,19 +161,39 @@ const Index = () => {
 
       {/* Content overlay */}
       <div className="relative z-10 flex min-h-screen w-full items-end justify-center pb-4 sm:pb-12 md:pb-16 lg:pb-20 px-4">
-        <Button
-          asChild
-          size="lg"
-          className="group relative overflow-hidden bg-[#262626] backdrop-blur-sm px-6 py-3 sm:px-10 sm:py-4 md:px-14 md:py-5 lg:px-16 lg:py-6 text-xs sm:text-sm md:text-base font-normal tracking-wider shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-[#B0C2B0] uppercase"
-        >
-          <a
-            href={googleFormUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="relative z-10 text-[#FFFFFF]">SIGN UP TO BE THE FIRST TO KNOW</span>
-          </a>
-        </Button>
+        <div className="space-y-6 flex-1 max-w-md">
+          {/* <h2 className="text-5xl md:text-6xl font-light font-hatton text-[#595959]">
+            Join the AVYA community.
+          </h2> */}
+          <p className="text-white text-l leading-relaxed">
+            Be the first to know about our events and new services.
+          </p>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your Email"
+              className="flex-1 px-4 py-3 bg-white/50 border border-black/20 rounded-lg text-white placeholder-black focus:outline-none focus:ring-2 focus:ring-white/30 font-sans"
+            />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="px-6 py-3 bg-white text-[#262626] rounded-lg hover:bg-white/90 transition-colors font-sans disabled:bg-gray-400"
+            >
+              {isSubmitting ? 'Subscribing...' : 'SUBSCRIBE'}
+            </button>
+          </form>
+          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {success && <p className="text-green-400 text-sm">Thank you for Joining Avya Community!</p>}
+          {/* <p className="text-sm text-[#595959]">
+            By signing up to receive emails from AVYA, you agree to our{' '}
+            <a href="#" className="underline hover:text-[#595959] transition-colors">
+              Privacy Policy
+            </a>
+            .
+          </p> */}
+        </div>
       </div>
 
       {/* Floating WhatsApp Button */}
