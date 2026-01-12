@@ -579,7 +579,7 @@ const ComingSoon = () => {
       ></div>
 
       
-      {/* <div className="relative z-10 flex min-h-screen w-full items-end justify-center px-10 bg-black/40 pb-12 sm:pb-20 md:pb-24 lg:pb-28"> 
+      <div className="relative z-10 flex min-h-screen w-full items-end justify-center px-10 bg-black/40 pb-12 sm:pb-20 md:pb-24 lg:pb-28"> 
         <div className="space-y-4 flex-1 max-w-2xl text-center"> 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#E7E0D0] uppercase leading-tight tracking-wide">
             BE PART OF THE NEXT BIG RETAIL EXPERIENCE COMING SOON IN NAIROBI.
@@ -590,35 +590,35 @@ const ComingSoon = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
             <a
               href={googleFormUrl}
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-7 py-3 bg-[#001F3D] text-white rounded-none hover:bg-[#E7E0D0] transition-colors font-sans font-semibold text-base sm:text-lg w-full sm:w-auto flex items-center justify-center" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3 bg-[#001F3D] text-white rounded-none hover:bg-[#E7E0D0] transition-colors font-sans font-semibold text-base sm:text-lg w-full sm:w-auto flex items-center justify-center"
+            >
+              BOOK A SPACE
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* <div className="relative z-10 flex min-h-screen w-full items-end justify-center px-10 bg-black/40">
+        <div className="space-y-4 flex-1 max-w-2xl text-center mb-12 sm:mb-20 md:mb-24 lg:mb-28">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#E7E0D0] uppercase leading-tight tracking-wide">
+            BE PART OF THE NEXT BIG RETAIL EXPERIENCE COMING SOON IN NAIROBI.
+          </h1>
+          <p className="text-white text-lg sm:text-lg md:text-xl leading-relaxed mt-2 font-medium">
+            Tenants interested in occupying space, please send us your inquiry.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
+            <a
+              href={googleFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3 bg-[#001F3D] text-white rounded-none hover:bg-[#E7E0D0] transition-colors font-sans font-semibold text-base sm:text-lg w-full sm:w-auto flex items-center justify-center"
             >
               BOOK A SPACE
             </a>
           </div>
         </div>
       </div> */}
-      <div className="relative z-10 min-h-screen w-full bg-black/40">
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-1/2 -translate-x-1/2 space-y-4 max-w-2xl text-center px-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#E7E0D0] uppercase leading-tight tracking-wide">
-          BE PART OF THE NEXT BIG RETAIL EXPERIENCE COMING SOON IN NAIROBI.
-        </h1>
-        <p className="text-white text-lg sm:text-lg md:text-xl leading-relaxed mt-2 font-medium">
-          Tenants interested in occupying space, please send us your inquiry.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
-          <a
-            href={googleFormUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-7 py-3 bg-[#001F3D] text-white rounded-none hover:bg-[#E7E0D0] transition-colors font-sans font-semibold text-base sm:text-lg w-full sm:w-auto flex items-center justify-center"
-          >
-            BOOK A SPACE
-          </a>
-        </div>
-      </div>
-</div>
 
     </main>
   );
